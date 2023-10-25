@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("What grade did you get for the exam");
+        int examGrade = scanner1.nextInt();
+
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("What grade did you get for the assessment?");
+        int assessGrade = scanner2.nextInt();
+
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.println("How much of your fees have you paid");
+        double fee= scanner3.nextDouble();
+
+
+        if (examGrade>=25 && assessGrade>=15){
+            if (fee>=100.0){
+                System.out.println("You got "+examGrade+" on your exam");
+                System.out.println("You got "+assessGrade+" on your assessment");
+                System.out.println("You have paid your fees in full");
+                System.out.println("Congratulation, you will receive a certificate");
+            }
+            else {
+                System.out.println("You got "+examGrade+" on your exam");
+                System.out.println("You got "+assessGrade+" on your assessment");
+                System.out.println("You have not paid your fees in full");
+                System.out.println("Pay your fees and you will get your certificate");
+            }
+        }
+
+        else if(examGrade<=25 || assessGrade<=15){
+            if (examGrade+assessGrade==39 && fee>=100.0){
+                System.out.println("You got "+examGrade+" on your exam");
+                System.out.println("You got "+assessGrade+" on your assessment");
+                System.out.println("Your grades are condoned, and you will get a certificate");
+
+            }
+            else if(examGrade+assessGrade==39 && fee<100.0){
+                System.out.println("You got "+examGrade+" on your exam");
+                System.out.println("You got "+assessGrade+" on your assessment");
+                System.out.println("Your grades are not condoned, but you have not paid your fees in full");
+                System.out.println("Pay your fees and you will get your certificate");
+            }
+            else {
+                if (examGrade>=25){
+                    System.out.println("You passed your exam with a grade of "+examGrade);
+                }
+                else{
+                    System.out.println("You failed your exam with a score of "+examGrade);
+                }
+                if (assessGrade>=15){
+                    System.out.println("You passed your assessment with a grade of "+assessGrade);
+                }
+                else{
+                    System.out.println("You failed your assessment with a grade of "+assessGrade);
+                }
+                System.out.println("Your grades are not good enough and you have failed");
+            }
+
+        }
+
+
+    }
+}
